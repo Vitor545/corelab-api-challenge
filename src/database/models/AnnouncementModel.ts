@@ -1,7 +1,18 @@
 import { DataTypes, Model } from 'sequelize'
 import db from '.'
 
-class AnnouncementModel extends Model {}
+class AnnouncementModel extends Model {
+  declare id : number
+  declare name: string
+  declare brand:string
+  declare color:string
+  declare board:string
+  declare year:number
+  declare description:string
+  declare priceMin:number
+  declare priceMax:number
+  declare userId:number
+}
 
 AnnouncementModel.init(
   {
