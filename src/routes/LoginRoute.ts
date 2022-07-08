@@ -18,6 +18,5 @@ export default class LoginRoute {
   private init () {
     const controller = this._loginController
     this._route.post('/', controller.login.bind(controller))
-    this._route.post('/', controller.validate.bind(controller))
   }
 }

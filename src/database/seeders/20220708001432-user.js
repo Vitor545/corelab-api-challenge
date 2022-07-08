@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs')
+
 'use strict'
 
 module.exports = {
@@ -5,12 +7,12 @@ module.exports = {
     await queryInterface.bulkInsert('users', [{
       name: 'John Doe',
       email: 'gtadobairro345@gmail.com',
-      password: 'Pizza3025$'
+      password: bcrypt.hashSync('Pizza3025$', 10)
     },
     {
       name: 'Maria Doe',
       email: 'mariadoe@gmail.com',
-      password: 'Pizza3089$'
+      password: bcrypt.hashSync('Pizza3089$', 10)
     }],{})
   },
 
