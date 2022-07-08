@@ -9,7 +9,7 @@ export default class UserController {
     try {
       const { name, email, password } = req.body
       if (!email || !password || !name) {
-        throw new ErrorHandler('All fields must be filled', 400)
+        throw new ErrorHandler('Preencha todos os campos', 400)
       }
       const user = await this._userService.create(name, email, password)
 
@@ -17,13 +17,5 @@ export default class UserController {
     } catch (err) {
       next(err)
     }
-  }
-
-  public async getAllUsers (req: Request, res: Response, next: NextFunction): Promise<any> {
-
-  }
-
-  public async getUserById (req: Request, res: Response, next: NextFunction): Promise<any> {
-
   }
 }

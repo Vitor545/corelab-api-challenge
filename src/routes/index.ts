@@ -28,7 +28,7 @@ export default class {
 
   private init () {
     this._router.use('/login', this._loginRouter.route)
-    this._router.use('/users', this._userRouter.route)
+    this._router.use('/user', this._userRouter.route)
     this._router.use('/announcement', this._announcementRouter.route)
     this._router.use('/favorites', this._favoriteRouter.route)
   }

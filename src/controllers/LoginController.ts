@@ -9,7 +9,7 @@ export default class LoginController {
     try {
       const { email, password } = req.body
       if (!email || !password) {
-        throw new ErrorHandler('All fields must be filled', 400)
+        throw new ErrorHandler('Preencha todos os campos', 400)
       }
       const user = await this._loginService.login(email, password)
 

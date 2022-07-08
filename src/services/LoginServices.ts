@@ -11,11 +11,11 @@ export default class LoginService {
   async login (email: string, password: string) {
     const userModel: IUser | null = await this.usersModel.findOne({ where: { email } })
 
-    if (!userModel) throw new ErrorHandler('Incorrect email or password', 401)
+    if (!userModel) throw new ErrorHandler('Email ou senha estão incorretos', 401)
 
     // hasUser por ser do tipo IUser pode ou não receber senha, então quado eu tenho a senha eu verifico se não passou se não responde 401
     if (userModel.password && !bcrypt.compareSync(password, userModel.password)) {
-      throw new ErrorHandler('Incorrect email or password', 401)
+      throw new ErrorHandler('Email ou senha estão incorretos', 401)
     }
 
     // a Interface pode ou não receber uma senha por conta da constante abaixo, onde eu não quero enviar a senha com resposta.
