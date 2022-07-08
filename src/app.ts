@@ -1,6 +1,7 @@
 import * as express from 'express'
 import * as cors from 'cors'
 import Routes from './routes'
+import ErrorMiddleware from './middlewares/ErrorMiddleware'
 
 export class App {
   public app: express.Express
@@ -29,6 +30,7 @@ export class App {
     app.use(express.json())
     app.use(cors())
     app.use(this.routes.router)
+    app.use(ErrorMiddleware)
   }
 
   public start (PORT: string | number): void {
