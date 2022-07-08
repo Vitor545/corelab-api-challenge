@@ -1,11 +1,14 @@
 import * as express from 'express'
 import * as cors from 'cors'
+import Routes from './routes'
 
 export class App {
   public app: express.Express
+  private routes: Routes
 
   constructor () {
     this.app = express()
+    this.routes = new Routes()
     this.config()
   }
 
@@ -25,6 +28,7 @@ export class App {
     app.use(accessControl)
     app.use(express.json())
     app.use(cors())
+    app.use(this.routes.router)
   }
 
   public start (PORT: string | number): void {

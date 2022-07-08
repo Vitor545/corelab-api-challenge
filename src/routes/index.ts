@@ -1,23 +1,23 @@
 import * as express from 'express'
-import FavoritesRoute from './FavoritesRoute'
+import FavoriteRoute from './FavoriteRoute'
 import LoginRoute from './LoginRoute'
-import UsersRoute from './UsersRoute'
+import UserRoute from './UserRoute'
 import AnnouncementRoute from './AnnouncementRoute'
 
 export default class {
   private _router: express.Router
   private _loginRouter: LoginRoute
-  private _userRouter: UsersRoute
+  private _userRouter: UserRoute
   private _announcementRouter: AnnouncementRoute
-  private _favoritesRouter: FavoritesRoute
+  private _favoriteRouter: FavoriteRoute
 
   constructor () {
     this._router = express.Router()
 
     this._loginRouter = new LoginRoute()
-    this._userRouter = new UsersRoute()
+    this._userRouter = new UserRoute()
     this._announcementRouter = new AnnouncementRoute()
-    this._favoritesRouter = new FavoritesRoute()
+    this._favoriteRouter = new FavoriteRoute()
 
     this.init()
   }
@@ -27,9 +27,9 @@ export default class {
   }
 
   private init () {
-    this._router.use('/login', this._loginRouter.router)
-    this._router.use('/users', this._userRouter.router)
-    this._router.use('/announcement', this._announcementRouter.router)
-    this._router.use('/favorites', this._favoritesRouter.router)
+    this._router.use('/login', this._loginRouter.route)
+    this._router.use('/users', this._userRouter.route)
+    this._router.use('/announcement', this._announcementRouter.route)
+    this._router.use('/favorites', this._favoriteRouter.route)
   }
 }
