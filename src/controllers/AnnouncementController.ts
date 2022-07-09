@@ -6,7 +6,13 @@ export default class AnnouncementController {
   private _annountcementServices = new AnnountcementServices()
 
   public async getAllAnnouncement (req: Request, res: Response, next: NextFunction): Promise<any> {
-
+    try {
+      const token = req.headers.authorization
+      const announcement = await this._annountcementServices.getAllAnnouncement(token)
+      return res.status(200).json(announcement)
+    } catch (err) {
+      next(err)
+    }
   }
 
   public async getAnnouncementByID (req: Request, res: Response, next: NextFunction): Promise<any> {

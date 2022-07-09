@@ -1,5 +1,6 @@
 import { DataTypes, Model } from 'sequelize'
 import db from '.'
+import AnnouncementModel from './AnnouncementModel'
 
 class UserModel extends Model {
   declare id: number
@@ -36,4 +37,6 @@ UserModel.init(
     tableName: 'users'
   }
 )
+UserModel.hasMany(AnnouncementModel, { foreignKey: 'userId', as: 'user' })
+
 export default UserModel

@@ -17,8 +17,6 @@ export default class FavoriteRoute {
 
   private init () {
     const controller = this._favoriteController
-    this._route.get('/', controller.getAllFavorites.bind(controller))
-    this._route.get('/:id', controller.getFavoriteById.bind(controller))
     this._route.post('/', controller.createFavorite.bind(controller))
     this._route.delete('/:id', controller.deleteFavorite.bind(controller))
   }

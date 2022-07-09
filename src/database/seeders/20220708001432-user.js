@@ -13,6 +13,11 @@ module.exports = {
       name: 'Maria Doe',
       email: 'mariadoe@gmail.com',
       password: bcrypt.hashSync('Pizza3089$', 10)
+    },
+    {
+      name: 'Mari Doe',
+      email: 'marie@gmail.com',
+      password: bcrypt.hashSync('Pizza3089$', 10)
     }],{})
   },
 

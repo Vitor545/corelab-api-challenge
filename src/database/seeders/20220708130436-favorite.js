@@ -10,7 +10,7 @@ module.exports = {
       userId: 2,
       announcementId: 3,
     },{
-      userId: 2,
+      userId: 3,
       announcementId: 1,
     }],{})
   },

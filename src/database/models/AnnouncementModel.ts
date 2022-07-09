@@ -70,4 +70,5 @@ AnnouncementModel.init(
     tableName: 'announcements'
   }
 )
+
 export default AnnouncementModel

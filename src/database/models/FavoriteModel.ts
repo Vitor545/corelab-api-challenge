@@ -1,7 +1,13 @@
 import { DataTypes, Model } from 'sequelize'
 import db from '.'
+import AnnouncementModel from './AnnouncementModel'
+import UserModel from './UserModel'
 
-class FavoriteModel extends Model {}
+class FavoriteModel extends Model {
+  declare id: number
+  declare userId: number
+  declare announcementId: number
+}
 
 FavoriteModel.init(
   {
@@ -36,4 +42,7 @@ FavoriteModel.init(
     tableName: 'favorites'
   }
 )
+
+AnnouncementModel.belongsToMany(UserModel, { foreignKey: 'announcementId', through: FavoriteModel, as: 'favoritos' })
+UserModel.belongsToMany(AnnouncementModel, { foreignKey: 'userId', through: FavoriteModel, as: 'favoritos' })
 export default FavoriteModel
