@@ -1,7 +1,6 @@
 import * as bcrypt from 'bcryptjs'
 import ErrorHandler from '../helpers/ErrorHandler'
 import UsersModel from '../database/models/UserModel'
-import AnnouncementModel from '../database/models/AnnouncementModel'
 import * as JWT from '../helpers/JWT'
 import { IUser } from '../interfaces/user.interface'
 
@@ -10,19 +9,7 @@ export default class LoginService {
   private jwt = JWT
 
   async login (email: string, password: string) {
-    const userModel: IUser | null = await this.usersModel.findOne({
-      where: { email },
-      include: [{
-        model: AnnouncementModel,
-        as: 'favoritos',
-        attributes: ['id', 'name', 'brand', 'color', 'board', 'year', 'description', 'priceMax', 'priceMin', 'userId'],
-        through: { attributes: [] }
-      }, {
-        model: AnnouncementModel,
-        as: 'user',
-        attributes: ['id', 'name', 'brand', 'color', 'board', 'year', 'description', 'priceMax', 'priceMin', 'userId']
-      }]
-    })
+    const userModel: IUser | null = await this.usersModel.findOne({ where: { email } })
 
     if (!userModel) throw new ErrorHandler('Email ou senha estão incorretos', 401)
 
@@ -40,6 +27,6 @@ export default class LoginService {
 
     const token = this.jwt.create(user)
 
-    return { userModel, token }
+    return { user, token }
   }
 }
