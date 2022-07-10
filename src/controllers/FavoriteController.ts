@@ -32,10 +32,11 @@ export default class FavoriteController {
   public async deleteFavorite (req: Request, res: Response, next: NextFunction): Promise<any> {
     try {
       const token = req.headers.authorization
-      const { userId, announcementId } = req.body
+      const { announcementId } = req.params
+      const { userId } = req.body
       if (!userId) throw new ErrorHandler('Usuário não foi passado', 400)
       if (!announcementId) throw new ErrorHandler('Anúncio não foi passado', 400)
-      await this._favoriteService.delete({ userId, announcementId }, token)
+      await this._favoriteService.delete(userId, Number(announcementId), token)
       return res.status(200).end
     } catch (err) {
       next(err)

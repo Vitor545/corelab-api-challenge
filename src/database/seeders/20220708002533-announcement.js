@@ -5,7 +5,7 @@ module.exports = {
     await queryInterface.bulkInsert('announcements', [{
       name: 'Uno',
       brand: 'Fiat',
-      color: '#fff',
+      color: '#FFFFFF',
       year: '2022',
       board: 'PCD21511',
       description: 'Carro espaçoso e nunca deu problema.',

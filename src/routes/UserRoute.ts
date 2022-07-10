@@ -18,6 +18,6 @@ export default class UserRoute {
   private init () {
     const controller = this._userController
     this._route.post('/register', controller.createUser.bind(controller))
-    this._route.get('/info', controller.getInfoUser.bind(controller))
+    this._route.get('/:id', controller.getInfoUser.bind(controller))
   }
 }

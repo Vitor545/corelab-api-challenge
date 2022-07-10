@@ -20,7 +20,7 @@ export default class AnnouncementRoute {
     this._route.get('/', controller.getAllAnnouncement.bind(controller))
     this._route.get('/:id', controller.getAnnouncementByID.bind(controller))
     this._route.post('/', controller.createAnnouncement.bind(controller))
-    this._route.patch('/:id', controller.updateAnnouncement.bind(controller))
+    this._route.put('/:id', controller.updateAnnouncement.bind(controller))
     this._route.delete('/:id', controller.deleteAnnouncement.bind(controller))
   }
 }

@@ -23,9 +23,8 @@ export default class UserServices {
     return announcementModel
   }
 
-  async delete (info: IFavorite, token: string | undefined) {
+  async delete (userId: number, announcementId: number, token: string | undefined) {
     this.jwt.verify(token)
-    const { userId, announcementId } = info
     const idVerify: IFavorite | null = await this._favoriteModel.findOne({ where: { userId, announcementId } })
     if (!idVerify) throw new ErrorHandler('Favorito não existe', 401)
     await this._favoriteModel.destroy({ where: { userId, announcementId } })

@@ -16,7 +16,18 @@ export default class AnnouncementController {
   }
 
   public async getAnnouncementByID (req: Request, res: Response, next: NextFunction): Promise<any> {
+    try {
+      const { id } = req.params
+      const token = req.headers.authorization
+      if (!id) {
+        throw new ErrorHandler('Nenhum anúncio foi encontrado', 400)
+      }
+      const user = await this._annountcementServices.getByid(Number(id), token)
 
+      return res.status(200).json(user)
+    } catch (err) {
+      next(err)
+    }
   }
 
   public async createAnnouncement (req: Request, res: Response, next: NextFunction): Promise<any> {
@@ -53,6 +64,17 @@ export default class AnnouncementController {
   }
 
   public async deleteAnnouncement (req: Request, res: Response, next: NextFunction): Promise<any> {
+    try {
+      const token = req.headers.authorization
+      const { id } = req.params
+      const { userId } = req.body
+      if (!userId) throw new ErrorHandler('Usuário não encontrado', 400)
+      if (!id) throw new ErrorHandler('Anúncio não encontrado', 400)
+      const announcement = await this._annountcementServices.delete(userId, token, Number(id))
 
+      return res.status(200).json(announcement)
+    } catch (err) {
+      next(err)
+    }
   }
 }
