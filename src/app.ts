@@ -37,3 +37,5 @@ export class App {
     this.app.listen(PORT, () => console.log(`Rodando na porta ${PORT}`))
   }
 }
+
+export const { app } = new App()
