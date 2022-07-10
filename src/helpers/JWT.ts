@@ -6,7 +6,7 @@ const secret = readFileSync('jwt.evaluation.key', 'utf8')
 
 export function create (payload: string | object) {
   return jwt.sign(payload, secret, {
-    expiresIn: '60m',
+    expiresIn: '2m',
     algorithm: 'HS256'
   })
 }
