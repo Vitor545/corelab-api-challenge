@@ -8,8 +8,9 @@ export default class FavoriteController {
   public async getAllFavorites (req: Request, res: Response, next: NextFunction): Promise<any> {
     try {
       const token = req.headers.authorization
-      const { userId } = req.body
-      const announcement = await this._favoriteService.getAllFavoriteUser(userId, token)
+      const { userId } = req.params
+      if (!userId) throw new ErrorHandler('Usuário não foi passado', 400)
+      const announcement = await this._favoriteService.getAllFavoriteUser(Number(userId), token)
       return res.status(200).json(announcement)
     } catch (err) {
       next(err)

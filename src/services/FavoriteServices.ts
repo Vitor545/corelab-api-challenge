@@ -9,7 +9,7 @@ export default class UserServices {
 
   async getAllFavoriteUser (userId: number, token: string | undefined) {
     this.jwt.verify(token)
-    const idVerify: IFavorite | null = await this._favoriteModel.findOne({ where: { userId } })
+    const idVerify: IFavorite[] | null = await this._favoriteModel.findAll({ where: { userId } })
     if (!idVerify) throw new ErrorHandler('Usuário sem favoritos', 401)
     return idVerify
   }

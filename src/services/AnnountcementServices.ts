@@ -26,6 +26,9 @@ export default class UserServices {
   async create (info: IAnnouncement, token: string | undefined) {
     this.jwt.verify(token)
     const { name, brand, color, board, year, description, priceMin, priceMax, userId } = info
+    if (year < 0 || year > 2022) throw new ErrorHandler('Ano inválido', 401)
+    if (description.length > 255 || name.length > 255 || board.length > 255 || brand.length > 255) throw new ErrorHandler('Máximo de 255 caracteres', 401)
+    if (priceMin < 0 || priceMax > 10000000000) throw new ErrorHandler('Máximo de R$10000000000 e Mínimo de 0', 401)
     const announcementModel: IAnnouncement = await this._announcementModel.create({ name, brand, color, board, year, description, priceMin, priceMax, userId })
     return announcementModel
   }
@@ -33,6 +36,9 @@ export default class UserServices {
   async update (info: IAnnouncement, token: string | undefined, id: number) {
     this.jwt.verify(token)
     const { name, brand, color, board, year, description, priceMin, priceMax, userId } = info
+    if (Number(year) < 0 || Number(year) > 2022) throw new ErrorHandler('Ano inválido', 401)
+    if (description.length > 255 || name.length > 255 || board.length > 255 || brand.length > 255) throw new ErrorHandler('Máximo de 255 caracteres', 401)
+    if (Number(priceMin) < 0 || Number(priceMax) > 10000000000) throw new ErrorHandler('Máximo de R$10000000000 e Mínimo de 0', 401)
     const userVerify: IAnnouncement | null = await this._announcementModel.findOne({ where: { id } })
     if (!userVerify) throw new ErrorHandler('Anúncio não encontrado', 401)
     if (userVerify.userId !== userId) throw new ErrorHandler('Anúncio não te pertece, não pode altera-lo', 401)

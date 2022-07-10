@@ -22,7 +22,8 @@ module.exports = {
           key: 'id',
           model: 'announcements'
         },
-        allowNull: false
+        allowNull: false,
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
