@@ -5,7 +5,7 @@
 ## 📄 Contexto
 
 **Olá vendedor, vai anunciar oque?** Nesse projeto eu criei uma aplicação `100% full stack e responsiva`. Tudo isso com o uso de tecnologias como `React, Node, Sequelize, RTL, Mocha, Chai, Sinon, Sass e muito mais`. Foi um projeto desafiador, pois houve `uso de várias técnicas css, além de ser um aplicação 100% testada por parte de back-end`. Além disso, foi usado `Hooks e Padrões de commits
-Foi uma aplicação muito legal de se fazer e espero que goste, o link para o front end está abaixo`.
+Foi uma aplicação muito legal de se fazer e espero que goste, o link para o front end`.
 [Front-End](https://www.youtube.com/watch?v=twRLgPsP1H0&t)
 <br />
 
@@ -88,6 +88,6 @@ npm run dev
  Abaixo você pode ter uma previa de como ficou a aplicação.
 
 - Você pode clicar no link para ser redirecionado ao site:
-[Youtube]()
+[Youtube](https://youtu.be/TbnULom02j4)
 
 
