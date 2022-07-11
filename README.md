@@ -11,7 +11,6 @@ Foi uma aplicação muito legal de se fazer e espero que goste, o link para o fr
 
 
 <div>
-<img width=100% src="imgTest.png"></img>
 <img width=100% src="videoPage.gif"></img>
 </div>
 
