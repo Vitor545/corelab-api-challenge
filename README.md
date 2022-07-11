@@ -1,4 +1,4 @@
-## Projeto Corelab
+## Projeto Corelab Back End
  
 <h3 align='center'> 🚗 Se eu tivesse um único dólar, investiria em propaganda. </h3>
 
@@ -6,7 +6,7 @@
 
 **Olá vendedor, vai anunciar oque?** Nesse projeto eu criei uma aplicação `100% full stack e responsiva`. Tudo isso com o uso de tecnologias como `React, Node, Sequelize, RTL, Mocha, Chai, Sinon, Sass e muito mais`. Foi um projeto desafiador, pois houve `uso de várias técnicas css, além de ser um aplicação 100% testada por parte de back-end`. Além disso, foi usado `Hooks e Padrões de commits
 Foi uma aplicação muito legal de se fazer e espero que goste, o link para o front end`.
-[Front-End](https://github.com/Vitor545/corelab-web-challenge](https://github.com/Vitor545/corelab-api-challenge/tree/vitorsouza-corelab)
+[Front-End](https://github.com/Vitor545/corelab-web-challenge/tree/vitorsouza-corelab)
 <br />
 
 
